@@ -1,0 +1,6 @@
+export const {
+  REACT_APP_SERVER_URI = "http://localhost:5000",
+  REACT_APP_DEFAULT_LAT = "26.25031476680035",
+  REACT_APP_DEFAULT_LON = "78.2363891601562",
+  REACT_APP_DEFAULT_ZOOM = 10
+} = process.env

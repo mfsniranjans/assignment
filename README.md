@@ -1,55 +1,98 @@
-# Picture Search By Geolocation
 
-## Challenge Description 
-Design & develop a responsive web application that searches for pictures using Flickr API, based on user input and presents the results.
+# 📍 Photo Globe
+Search photos based on location.
 
-This challenge is designed to test your ability to write code that inter-operates with a third-party API as well as develop a simple user interface.
+## Demo 🖥️
+You can view the live app [here](https://mfs-assignment-fe.vercel.app/).
 
-## Challenge Specification
-The user should be able to:
-- Search for a location, and see the thumbnails of the first 10 photos available for that location. Navigation should be available to get the next 10 photos
-- Perform the search either by entering latitude and longitude, or selecting a location from a preset list. Locations in the preset list should be represented by a human-readable name.
-- Add entries to the preset list by supplying a longitude, latitude and name. **This list should be stored in the backend.
-- Add photos in a search result to a favourites list. **This list should be stored in the backend.
-- View thumbnails of the photos in the favourite list
-- Your frontend should not connect to Flickr API directly.
+## Features ⭐
+⚡️ Search any location on the map and see the photos of that location\
+⚡️ Drag and click on any location to see the photos of that location\
+⚡️ Favorite the photos you like and curate them in the **⭐ Favorites** Tab
 
-## What we are looking for
-How you design and structure an application given a set of requirements.
+## Folder Structure :file_folder:
+```
+App
+├── client
+├── server
 
-How you build maintainable code.
+```
 
-How does the final result look (user experience).
+```
+client
+├── README.md
+├── package.json
+├── src
+│   ├── App.js
+│   ├── components
+│   │   ├── Favorite.jsx
+│   │   ├── Gallery.jsx
+│   │   ├── Image.jsx
+│   │   └── Search.jsx
+│   ├── config
+│   │   └── constants.js
+│   ├── context
+│   │   ├── actions.js
+│   │   ├── index.js
+│   │   ├── reducer.js
+│   │   └── state.js
+│   ├── helpers
+│   │   ├── api.js
+│   │   └── index.js
+│   ├── index.css
+│   └── index.js
+├── tailwind.config.js
+└── yarn.lock
+```
+Entry point for `client` is `index.js`. All the JSX components are structured in `components`
 
-## Frameworks
-Any Python framework is acceptable - but the use of a framework is not required.
+```
+server
+├── Procfile
+├── app.py
+├── config.py
+├── models
+│   └── item.py
+├── requirements.txt
+├── runtime.txt
+└── wsgi.py
+```
+Entry point for `server` is `app.py`. Models are being stored in `models`.
 
-You can use any third party CSS frameworks to make your life easier.
+## Install & Build 🛠️
 
-Building it as a SPA will be a plus
+### Client
+**Step 1:** Go the `client` directory.
+```
+cd ./client
+```
+**Step 2:** Install all the dependencies and run the application. (Make sure `.env` is already has all the required environment variables)
+```
+yarn install && yarn start
+```
 
-Avoid using unnecessary libraries
+### Server
+**Step 1:** Go the `server` directory.
+```
+cd ./server
+```
+**Step 2:** Install all the dependencies.
+```
+pip install -r requirements.txt
+```
+**Step 3:** Run the server. (Make sure `.env` is already has all the required environment variables)
+```
+python app.py
+```
 
-## Build/Run
-Use any build tools you prefer;
 
-We want to easily run your application, so provide a brief description on how to build, run and test your project.
+## Deployment 📦
+### Client
+Client is a simple [React](https://reactjs.org/) application hosted on [Vercel](https://vercel.com/). You can view the client [here](https://mfs-assignment-fe.vercel.app/).
 
-*Bonus points are given for how well you present this project's documentation.*
+When you run `yarn build` on the client root folder it gives you production files in `dist` directory. It contains `index.html` which can be directly served on any server along with all the files in `dist` directory.
 
-## Deliverables
-New branch in this Git repository where your code resides
+### Server
+Server is [Flask](https://flask.palletsprojects.com/en/1.1.x/) backend application hosted on [Heroku](https://heroku.com/). You can directly access the APIs [here](https://mfs-flask-app.herokuapp.com/).
 
-Bonus for a live running version
-
-## Hints
-We don't have any time limit for this test, but we believe you can finish it within two days.
-
-We would like to see a production quality project, ready to ship. 
-
-Keep in mind edge cases and error handling. Let us see your understanding of it from code, build process and view design/layout point of views.
-
-## References/Links
-Flickr API: http://www.flickr.com/services/api/
-
-OpenStreetMap: https://nominatim.openstreetmap.org/ (for getting sample lat-long values)
+The `wsgi.py` contains the direct run code for the application. It is being executed by `gunicorn` in `Procfile`. Heroku directly executes `Procfile` and starts the server.
