@@ -5,7 +5,8 @@ Search photos based on location.
 ## Demo 🖥️
 
 You can view the live app [here](https://mfs-assignment-fe.vercel.app/).
-![Demo of the application](https://i.imgur.com/cvBDloR.gifv)
+
+![Demo of the application](https://i.imgur.com/cvBDloR.gif)
 
 ## Features ⭐
 
